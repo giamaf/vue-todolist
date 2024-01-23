@@ -31,7 +31,47 @@
 </head>
 
 <body>
+    <section>
+        <div id="root">
+            <div class="container py-5">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <h4 class="mb-3">Vue To Do List</h4>
 
+                        <!-- Ricerca -->
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-text" id="basic-addon1"> <i class="fas fa-search"></i></span>
+                        </div>
+
+                        <!-- List -->
+                        <ul class="list-group mb-0">
+                            <li class="flex list-group-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label">Prova</label>
+                                </div>
+                                <i class="fas fa-times text-primary"></i>
+                            </li>
+                        </ul>
+
+                        <!-- Aggiungi task -->
+                        <div class="d-flex justify-content-between mt-4 gap-2">
+                            <input type="text" id="form3" class="form-control" placeholder="Add task" />
+                            <span class="input-group-text" id="basic-addon1"> <i class="fas fa-plus"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="card-footer text-center">
+                        <button type="button" class="btn btn-outline-success">All Done</button>
+                        <button type="button" class="btn btn-outline-danger">All Undone</button>
+                        <button type="button" class="btn btn-outline-dark">Erase All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 

@@ -4,3 +4,14 @@
     Padding: 0;
     Box-sizing: border-box;
 } */
+
+ section {
+     height: 100vh;
+     background-color: cadetblue;
+ }
+
+ .flex {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
