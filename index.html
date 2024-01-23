@@ -41,7 +41,7 @@
                         <!-- Ricerca -->
                         <div class="input-group" v-show="tasks.length">
                             <input type="text" class="form-control" placeholder="Search">
-                            <span class="input-group-text" id="basic-addon1"> <i class="fas fa-search"></i></span>
+                            <button class="input-group-text" id="basic-addon1"> <i class="fas fa-search"></i></button>
                         </div>
 
                         <h3 v-show="!tasks.length" class="text-center mt-2">Non ci sono tasks</h3>
@@ -49,12 +49,13 @@
                         <!-- List -->
                         <ul class="list-group mt-3">
                             <li v-for="task in tasks" class="flex list-group-item">
-                                <div class="form-check">
-                                    <label type="button" class="form-check-label"
-                                        :class="{'text-decoration-line-through': task.done === true}">{{task.text}}
-                                        <input class="form-check-input" type="checkbox">
-                                    </label>
-                                </div>
+
+                                <label role="button" class="form-check-label"
+                                    :class="{'text-decoration-line-through': task.done}">
+                                    <input class="form-check-input me-2" type="checkbox"
+                                        @click="toggleIsDone(task.id)">{{task.text}}
+                                </label>
+
                                 <button class="btn-close btn-outline-dark" @click="deleteTask(task.id)"></button>
                             </li>
                         </ul>
