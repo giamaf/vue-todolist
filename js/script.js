@@ -22,11 +22,26 @@ const myApp = createApp({
     },
 
     computed: {
+
+        // # Funzione per filtrare i tasks nella barra di ricerca 
         filteredTasks() {
             const userText = this.searchedText.toLowerCase();
-            const newArray = this.tasks.filter(task => task.text.toLowerCase().includes(userText));
+            const newArray = this.sortedTasks.filter(task => task.text.toLowerCase().includes(userText));
 
             return newArray;
+        },
+
+        // # Funzione per riordinare i tasks in ordine alfabetico (da mettere in relazione con la funzione filteredTasks)
+
+        sortedTasks() {
+            return [...this.tasks].sort((a, b) => {
+                a = a.text.toLowerCase();
+                b = b.text.toLowerCase();
+
+                if (a > b) return 1;
+                else if (a < b) return -1;
+                else return 0;
+            });
         }
     },
 
@@ -84,7 +99,8 @@ const myApp = createApp({
         // # Funzione per eliminare tutti i tasks
         eraseAll() {
             this.tasks = [];
-        }
+        },
+
     }
 })
 
