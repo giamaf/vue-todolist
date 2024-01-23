@@ -40,7 +40,7 @@
 
                         <!-- Ricerca -->
                         <div class="input-group" v-show="tasks.length">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input v-model.trim="searchedText" type="text" class="form-control" placeholder="Search">
                             <button class="input-group-text" id="basic-addon1"> <i class="fas fa-search"></i></button>
                         </div>
 
@@ -48,7 +48,7 @@
 
                         <!-- List -->
                         <ul class="list-group mt-3">
-                            <li v-for="task in tasks" class="flex list-group-item">
+                            <li v-for="task in filteredTasks" class="flex list-group-item">
 
                                 <label role="button" class="form-check-label"
                                     :class="{'text-decoration-line-through': task.done}">

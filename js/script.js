@@ -15,8 +15,21 @@ const myApp = createApp({
 
             // ** Variabile importante per leggere i dati inseriti dall'utente
             newTask: '',
+
+            // ** Variabile importante per leggere la ricerca dell'utente
+            searchedText: '',
         }
     },
+
+    computed: {
+        filteredTasks() {
+            const userText = this.searchedText.toLowerCase();
+            const newArray = this.tasks.filter(task => task.text.toLowerCase().includes(userText));
+
+            return newArray;
+        }
+    },
+
     methods: {
 
         // # Funzione per cancellare un task. Passiamo un parametro "id" per individuare quale task vuole eliminare l'utente e riassegnamo il task originale
