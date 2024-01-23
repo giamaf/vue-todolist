@@ -45,13 +45,33 @@ const myApp = createApp({
         },
 
         // # Funzione per toggolare la barra sul task
-        toggleIsDone(id) {
+        // Possiamo evitare la funzione perchè abbiamo il v-model sulla checkbox
+        // toggleIsDone(id) {
+        //     this.tasks.forEach(task => {
+        //         if (id === task.id) {
+        //             task.done = !task.done
+        //         }
+        //     })
+        // },
+
+        // # Funzione per flaggare tutti i tasks
+        setAllDone() {
             this.tasks.forEach(task => {
-                if (id === task.id) {
-                    task.done = !task.done
-                }
+                task.done = true;
             })
         },
+
+        // # Funzione per deflaggare tutti i tasks
+        setAllUndone() {
+            this.tasks.forEach(task => {
+                task.done = false;
+            })
+        },
+
+        // # Funzione per eliminare tutti i tasks
+        eraseAll() {
+            this.tasks = [];
+        }
     }
 })
 

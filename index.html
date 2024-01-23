@@ -52,8 +52,8 @@
 
                                 <label role="button" class="form-check-label"
                                     :class="{'text-decoration-line-through': task.done}">
-                                    <input class="form-check-input me-2" type="checkbox"
-                                        @click="toggleIsDone(task.id)">{{task.text}}
+                                    <input role="button" class="form-check-input me-2" type="checkbox"
+                                        v-model="task.done">{{task.text}}
                                 </label>
 
                                 <button class="btn-close btn-outline-dark" @click="deleteTask(task.id)"></button>
@@ -72,9 +72,10 @@
 
                     <!-- Buttons -->
                     <div class="card-footer text-center">
-                        <button type="button" class="btn btn-outline-success">All Done</button>
-                        <button type="button" class="btn btn-outline-danger mx-2">All Undone</button>
-                        <button type="button" class="btn btn-outline-dark">Erase All</button>
+                        <button @click="setAllDone" type="button" class="btn btn-outline-success">All Done</button>
+                        <button @click="setAllUndone" type="button" class="btn btn-outline-danger mx-2">All
+                            Undone</button>
+                        <button @click="eraseAll" type="button" class="btn btn-outline-dark">Erase All</button>
                     </div>
                 </div>
             </div>
